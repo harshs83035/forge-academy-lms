@@ -5,7 +5,9 @@ const config: NextConfig = {
   turbopack: { root: path.resolve(__dirname) },
   serverExternalPackages: ["pg", "bcryptjs", "pdf-lib", "qrcode"],
   poweredByHeader: false,
-  async headers() {
+    outputFileTracingIncludes: { "/api/stream/**": ["./storage/hls/**/*"] },
+  async headers() 
+  {
     return [
       {
         source: "/(.*)",

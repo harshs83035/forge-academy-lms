@@ -9,3 +9,4 @@ storage/source
 # real content keys must never be committed; the DEMO sample key is the one exception
 storage/hls/*/enc.key
 !storage/hls/sample/enc.key
+.neon
