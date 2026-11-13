@@ -1,0 +1,7 @@
+{"duration": 30, "segments": [
+ {"id": 0, "start": 1.0,  "end": 5.5,  "text": "Welcome to the hydraulic press fundamentals module."},
+ {"id": 1, "start": 6.5,  "end": 12.0, "text": "In this video we will look at the main drive train and how the gears transfer power to the ram."},
+ {"id": 2, "start": 13.0, "end": 18.5, "text": "Always apply lock-out and tag-out before any maintenance work."},
+ {"id": 3, "start": 19.5, "end": 25.0, "text": "Check the oil level and the pressure relief valve at the start of every shift."},
+ {"id": 4, "start": 26.0, "end": 29.5, "text": "Let's move on to the next video."}
+]}

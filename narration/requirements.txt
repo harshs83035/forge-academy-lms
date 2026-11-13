@@ -1,0 +1,11 @@
+# Core (sync + orchestration): numpy + ffmpeg on PATH
+numpy>=1.26
+# Speech recognition
+faster-whisper>=1.0
+# Translation + the default Hindi voice
+torch            # use the CUDA build on a GPU machine: https://pytorch.org/get-started/locally/
+transformers>=4.40
+sentencepiece
+accelerate
+# Optional higher-quality voice (GPU recommended):
+# git+https://github.com/huggingface/parler-tts.git

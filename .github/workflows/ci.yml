@@ -1,0 +1,30 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env: { POSTGRES_USER: lms, POSTGRES_PASSWORD: lms, POSTGRES_DB: lms }
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U lms" --health-interval 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://lms:lms@localhost:5432/lms
+      AUTH_SECRET: ci-secret-ci-secret-ci-secret-ci-secret
+      MEDIA_ROOT: ./storage/hls
+      PRISMA_SCHEMA_ENGINE_BINARY: /bin/true
+      PRISMA_ENGINES_CHECKSUM_IGNORE_MISSING: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm run db:init && npm run db:seed
+      - run: npx next build
+      - run: npx next start -p 3000 &
+      - run: npx wait-on http://localhost:3000/login --timeout 60000
+      - run: node scripts/smoke.mjs http://localhost:3000
+      - run: pip install numpy pillow && python3 narration/tests/test_narration.py

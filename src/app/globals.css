@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #050d1f;
+  --color-navy-900: #0a1a3a;
+  --color-navy-800: #10264f;
+  --color-navy-700: #1a3566;
+  --color-navy-600: #27467f;
+  --color-navy-100: #e4e9f3;
+  --color-navy-50: #f3f5fa;
+  --color-brand: #ff7a1a;
+  --color-brand-600: #e8640a;
+  --color-brand-50: #fff3e8;
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, "Noto Sans Devanagari", sans-serif;
+}
+
+:root { color-scheme: light; }
+html, body { background: var(--color-navy-50); color: var(--color-navy-900); font-family: var(--font-sans); }
+body { -webkit-font-smoothing: antialiased; }
+*:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; }
+
+.gear-bg {
+  background-image:
+    radial-gradient(circle at 85% 15%, rgba(255,122,26,.18), transparent 40%),
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+}
+.no-select { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+
+/* content protection: nothing on the player page prints */
+@media print { .protect-print { display: none !important; } body::after { content: "Printing is disabled for protected training content."; display: block; padding: 2rem; } }
+
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+.skeleton { position: relative; overflow: hidden; background: #e4e9f3; border-radius: .5rem; }
+.skeleton::after { content: ""; position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent); animation: shimmer 1.4s infinite; }

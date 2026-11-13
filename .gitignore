@@ -1,0 +1,11 @@
+node_modules
+.next
+.env
+src/generated
+*.tsbuildinfo
+next-env.d.ts
+storage/uploads
+storage/source
+# real content keys must never be committed; the DEMO sample key is the one exception
+storage/hls/*/enc.key
+!storage/hls/sample/enc.key
