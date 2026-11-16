@@ -7,7 +7,7 @@
 4. **Completion** = ≥ 90% *watched* (server-validated watch time, not just seek position).
 5. **Sequential unlock** is per module (default on).
 6. **Admin scope:** an Admin manages *all* learners (not only ones they created). Admins cannot be learners of the same account.
-7. **Device limit** applies to learners only (default 2); Admin/Super Admin are exempt. A "device" is a browser profile (random ID in localStorage) — clearing storage registers a new device.
+7. **Device limit** applies to learners only (default 10); Admin/Super Admin are exempt. A "device" is a browser profile (random ID in localStorage) — clearing storage registers a new device.
 8. **Single session** applies to every role; default policy = new login replaces the old one.
 9. **Sample media:** all 8 seeded videos share one 30-second placeholder package (English = single beep, Hindi = triple beep); durations are therefore 0:30 rather than 3–4 min.
 10. **Upload** is accepted and stored but not transcoded in the prototype.

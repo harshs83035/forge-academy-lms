@@ -71,7 +71,7 @@ Stack: Next.js 16 (App Router) · TypeScript · Tailwind 4 · PostgreSQL · Pris
 | 4 | Dynamic watermark (name, ID, email, time) | ✅ Implemented | DOM overlay, moves every 7s, MutationObserver + computed-style poll re-inject/restore; 3 strikes in 30s pauses playback; events audit-logged |
 | 5 | Single concurrent session | ✅ Implemented | `replace` or `block` mode (Super Admin setting); old tab is bounced within ~10s |
 | 5 | Duplicate-stream detection | ✅ Implemented | heartbeat + stream claim |
-| 6 | Device limit + admin reset | ✅ Implemented | global default (2) + per-learner override; learners only |
+| 6 | Device limit + admin reset | ✅ Implemented | global default (10) + per-learner override; learners only |
 | 7 | Pause on tab blur | ✅ Implemented | optional toggle, off by default |
 | 7 | Screenshot / devtools shortcut blocking | ✅ Implemented (deterrent) | PrintScreen, F12, Ctrl+S/P/U, Ctrl+Shift+I/J/C, ⌘⇧3/4/5 |
 | 7 | Rate-limit + audit key/segment requests | ✅ Implemented | key 30/min, segments 400/min per user (in-memory; use Redis for multi-instance); keys, denials, limits, tamper events logged |

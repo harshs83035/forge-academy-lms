@@ -7,7 +7,7 @@ export type AppSettings = {
   faceVerification: boolean; // V2 hook: stubbed identity check around playback
 };
 
-export const DEFAULT_SETTINGS: AppSettings = { sessionMode: "replace", deviceLimit: 2, pauseOnBlur: false, faceVerification: false };
+export const DEFAULT_SETTINGS: AppSettings = { sessionMode: "replace", deviceLimit: 10, pauseOnBlur: false, faceVerification: false };
 
 export async function getSettings(): Promise<AppSettings> {
   const rows = await db.setting.findMany();

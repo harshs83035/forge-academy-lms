@@ -24,7 +24,7 @@
 13. **Reports**: progress, quiz scores, completion rates → **Export CSV**. **Audit log**: show KEY_ISSUED, LOGIN_BLOCKED, tamper events.
 
 ## 5. Super Admin (0.5 min) — sign in as **Super Admin**
-14. **Admins → Add admin**. **Security settings**: session policy, device limit (2), pause-on-blur, face verification stub. *"Admins can't see or change these."*
+14. **Admins → Add admin**. **Security settings**: session policy, device limit (10), pause-on-blur, face verification stub. *"Admins can't see or change these."*
 
 ## Closing (30 s)
 Version 2: face verification before/during playback (the hook is already in the flow), Widevine/FairPlay DRM, real upload→packaging pipeline, email. Stubs today: media packaging, DRM, facial recognition, email.

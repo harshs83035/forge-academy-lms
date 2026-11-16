@@ -60,8 +60,11 @@ ok("duplicate stream detected (older stream gets conflict)", (await hb(L.cookie,
 const L2 = await login("learner@forge.demo", "Learner@123", "dev-smoke-B-" + run); ok("second login (device B) succeeds", L2.status === 200);
 const old = await call("GET", "/api/auth/me", { cookie: L.cookie }); ok("OLD session invalidated (REPLACED)", old.status === 401 && old.data.reason === "REPLACED", JSON.stringify(old.data));
 ok("old playback token dead on stream", (await s("master.m3u8", g.token, L.cookie)).status === 401);
+// Temporarily lower global device limit so the 3rd device is refused (default is 10)
+ok("super admin lowers device limit for test", (await call("PUT", "/api/admin/settings", { cookie: SA.cookie, body: { sessionMode: "replace", deviceLimit: 2, pauseOnBlur: false, faceVerification: false } })).status === 200);
 const L3 = await login("learner@forge.demo", "Learner@123", "dev-smoke-C-" + run);
 ok("device limit enforced on 3rd device (403 DEVICE_LIMIT)", L3.status === 403 && L3.data.code === "DEVICE_LIMIT", L3.data.error);
+await call("PUT", "/api/admin/settings", { cookie: SA.cookie, body: { sessionMode: "replace", deviceLimit: 10, pauseOnBlur: false, faceVerification: false } });
 
 // --- anti-skip + honest watching (uses new session L2)
 const g2 = (await call("POST", `/api/videos/${v2.id}/playback`, { cookie: L2.cookie })); ok("video 2 playback granted (video 1 completed)", g2.status === 200);
